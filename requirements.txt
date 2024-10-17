@@ -1,0 +1,7 @@
+django==5.1.2
+djangorestframework==3.15.2
+markdown
+django-rest-swagger
+djangorestframework-simplejwt
+django-environ
+psycopg2-binary
