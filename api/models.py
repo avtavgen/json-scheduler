@@ -1,8 +1,18 @@
 from django.db import models
 
 
+class ScheduleName(models.Model):
+    name = models.CharField(max_length=100, blank=False)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.name}'
+
+
 class DayOfWeek(models.Model):
     name = models.CharField(max_length=100, blank=False)
+    schedule = models.ManyToManyField(ScheduleName, related_name='weekdays')
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 

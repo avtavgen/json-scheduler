@@ -15,12 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from rest_framework_swagger.views import get_swagger_view
+from django.urls import path, include
+from rest_framework import routers
 
-schema_view = get_swagger_view(title='JSON Scheduler')
+from api import views
+from api.views import schema_view
+
+router = routers.DefaultRouter()
+router.register(r'schedule', views.ScheduleViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('docs/', schema_view),
+    path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('', include(router.urls)),
 ]
