@@ -7,7 +7,7 @@ class Schedule:
     start: str
     stop: str
     ids: List[str] = None
-    camera_ids: List[int] = None
+    camera_ids: List[str] = None
 
 
 @dataclass
