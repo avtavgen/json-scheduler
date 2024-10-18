@@ -65,5 +65,5 @@ docker-compose exec web python manage.py test
 ## API documentation
 
 ```
-http://0.0.0.0/docs
+http://127.0.0.1:8000/api/docs
 ```

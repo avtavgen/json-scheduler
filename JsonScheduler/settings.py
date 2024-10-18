@@ -15,7 +15,6 @@ from pathlib import Path
 
 from environ import environ
 
-
 env = environ.Env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -44,9 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api.apps.ApiConfig',
-    'rest_framework',
-    'drf_yasg',
+    'ninja',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +135,5 @@ STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SUPERSECRET = env("SUPERSECRET")

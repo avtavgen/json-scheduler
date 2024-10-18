@@ -15,17 +15,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from rest_framework import routers
-
-from api import views
-from api.views import schema_view
-
-router = routers.DefaultRouter()
-router.register(r'schedule', views.ScheduleViewSet)
+from django.urls import path
+from api.views import api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('', include(router.urls)),
+    path('api/', api.urls),
 ]
