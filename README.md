@@ -1,6 +1,6 @@
-# json-scheduler-example
+# Django Json Scheduler
 
-Django JSON scheduler example project.
+Django JSON parser and scheduler project.
 
 ## Preconditions:
 
